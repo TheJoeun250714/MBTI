@@ -1,0 +1,129 @@
+2025-12-30 09:45:48.970  INFO 18192 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18192 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-30 09:45:48.973  INFO 18192 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-30 09:45:49.099  INFO 18192 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-30 09:45:49.145  INFO 18192 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-30 09:45:51.160  INFO 18192 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-30 09:45:51.174  INFO 18192 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-30 09:45:51.175  INFO 18192 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2025-12-30 09:45:51.258  INFO 18192 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-30 09:45:51.259  INFO 18192 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2110 ms
+2025-12-30 09:45:51.371  INFO 18192 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-30 09:45:51.965  INFO 18192 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@714ae829
+2025-12-30 09:45:51.967  INFO 18192 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-30 09:45:53.437  INFO 18192 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-30 09:45:53.479  INFO 18192 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-12-30 09:45:53.487  INFO 18192 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 5.633 seconds (process running for 7.866)
+2025-12-30 10:43:15.777  INFO 18192 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-30 10:43:15.779  INFO 18192 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-30 10:43:15.790  INFO 18192 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2025-12-30 10:43:15.858  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : [MbtiController.getAllQuestions()] 요청 / ip : 127.0.0.1
+2025-12-30 10:43:15.858  INFO 18192 --- [http-nio-8080-exec-1] c.mbti.mbti.controller.MbtiController    : GET /api/mbti/questions - Fetching all questions
+2025-12-30 10:43:15.859  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.getAllQuestions() 서비스 호출 ==========
+2025-12-30 10:43:15.859  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : Parameter : []
+2025-12-30 10:43:15.859  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
+2025-12-30 10:43:15.969  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : Running Time : 110ms
+2025-12-30 10:43:15.969  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:01:51.737  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : [MbtiController.getAllQuestions()] 요청 / ip : 127.0.0.1
+2025-12-30 11:01:51.738  INFO 18192 --- [http-nio-8080-exec-3] c.mbti.mbti.controller.MbtiController    : GET /api/mbti/questions - Fetching all questions
+2025-12-30 11:01:51.738  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.getAllQuestions() 서비스 호출 ==========
+2025-12-30 11:01:51.738  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : Parameter : []
+2025-12-30 11:01:51.738  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
+2025-12-30 11:01:51.747  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : Running Time : 9ms
+2025-12-30 11:01:51.747  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:10:35.442  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : [MbtiController.getAllQuestions()] 요청 / ip : 127.0.0.1
+2025-12-30 11:10:35.443  INFO 18192 --- [http-nio-8080-exec-5] c.mbti.mbti.controller.MbtiController    : GET /api/mbti/questions - Fetching all questions
+2025-12-30 11:10:35.443  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.getAllQuestions() 서비스 호출 ==========
+2025-12-30 11:10:35.443  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : Parameter : []
+2025-12-30 11:10:35.443  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
+2025-12-30 11:10:35.446  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : Running Time : 3ms
+2025-12-30 11:10:35.447  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:11:03.832  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : [MbtiController.submitTest()] 요청 / ip : 127.0.0.1
+2025-12-30 11:11:03.832  INFO 18192 --- [http-nio-8080-exec-7] c.mbti.mbti.controller.MbtiController    : POST /api/mbti/submit - Submitting test for user: 홍길동
+2025-12-30 11:11:03.841  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.submitTest() 서비스 호출 ==========
+2025-12-30 11:11:03.841  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : Parameter : [TestRequest(userName=홍길동, answers=[TestAnswer(questionId=1, selectedOption=A), TestAnswer(questionId=2, selectedOption=B), TestAnswer(questionId=3, selectedOption=B), TestAnswer(questionId=4, selectedOption=B), TestAnswer(questionId=5, selectedOption=B), TestAnswer(questionId=6, selectedOption=B), TestAnswer(questionId=7, selectedOption=B), TestAnswer(questionId=8, selectedOption=B), TestAnswer(questionId=9, selectedOption=B), TestAnswer(questionId=10, selectedOption=B), TestAnswer(questionId=11, selectedOption=B), TestAnswer(questionId=12, selectedOption=A)])]
+2025-12-30 11:11:03.847  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.mbti.service.MbtiServiceImpl    : Submitting test for user: 홍길동
+2025-12-30 11:11:03.879  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.mbti.service.MbtiServiceImpl    : Calculated MBTI type: INFP
+2025-12-30 11:11:03.919  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.mbti.service.MbtiServiceImpl    : Saved result with id: 1
+2025-12-30 11:11:03.959  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.mbti.service.MbtiServiceImpl    : Saved 12 answers
+2025-12-30 11:11:03.959  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.mbti.service.MbtiServiceImpl    : Fetching result with id: 1
+2025-12-30 11:11:03.972  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : Running Time : 131ms
+2025-12-30 11:11:03.972  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:56:01.747  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : [MbtiController.getAllQuestions()] 요청 / ip : 127.0.0.1
+2025-12-30 11:56:01.747  INFO 18192 --- [http-nio-8080-exec-9] c.mbti.mbti.controller.MbtiController    : GET /api/mbti/questions - Fetching all questions
+2025-12-30 11:56:01.747  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.getAllQuestions() 서비스 호출 ==========
+2025-12-30 11:56:01.747  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : Parameter : []
+2025-12-30 11:56:01.747  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
+2025-12-30 11:56:01.769  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : Running Time : 22ms
+2025-12-30 11:56:01.770  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:56:28.588  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : [MbtiController.submitTest()] 요청 / ip : 127.0.0.1
+2025-12-30 11:56:28.588  INFO 18192 --- [http-nio-8080-exec-1] c.mbti.mbti.controller.MbtiController    : POST /api/mbti/submit - Submitting test for user: 강감찬
+2025-12-30 11:56:28.588  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.submitTest() 서비스 호출 ==========
+2025-12-30 11:56:28.589  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : Parameter : [TestRequest(userName=강감찬, answers=[TestAnswer(questionId=1, selectedOption=B), TestAnswer(questionId=2, selectedOption=B), TestAnswer(questionId=3, selectedOption=B), TestAnswer(questionId=4, selectedOption=B), TestAnswer(questionId=5, selectedOption=A), TestAnswer(questionId=6, selectedOption=A), TestAnswer(questionId=7, selectedOption=A), TestAnswer(questionId=8, selectedOption=A), TestAnswer(questionId=9, selectedOption=B), TestAnswer(questionId=10, selectedOption=B), TestAnswer(questionId=11, selectedOption=B), TestAnswer(questionId=12, selectedOption=B)])]
+2025-12-30 11:56:28.589  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.mbti.service.MbtiServiceImpl    : Submitting test for user: 강감찬
+2025-12-30 11:56:28.598  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.mbti.service.MbtiServiceImpl    : Calculated MBTI type: ISTP
+2025-12-30 11:56:28.603  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.mbti.service.MbtiServiceImpl    : Saved result with id: 2
+2025-12-30 11:56:28.617  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.mbti.service.MbtiServiceImpl    : Saved 12 answers
+2025-12-30 11:56:28.618  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.mbti.service.MbtiServiceImpl    : Fetching result with id: 2
+2025-12-30 11:56:28.623  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : Running Time : 34ms
+2025-12-30 11:56:28.623  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:57:00.689  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : [MbtiController.getAllQuestions()] 요청 / ip : 127.0.0.1
+2025-12-30 11:57:00.689  INFO 18192 --- [http-nio-8080-exec-3] c.mbti.mbti.controller.MbtiController    : GET /api/mbti/questions - Fetching all questions
+2025-12-30 11:57:00.689  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.getAllQuestions() 서비스 호출 ==========
+2025-12-30 11:57:00.690  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : Parameter : []
+2025-12-30 11:57:00.690  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
+2025-12-30 11:57:00.691  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : Running Time : 1ms
+2025-12-30 11:57:00.691  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:57:03.410  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : [MbtiController.submitTest()] 요청 / ip : 127.0.0.1
+2025-12-30 11:57:03.411  INFO 18192 --- [http-nio-8080-exec-5] c.mbti.mbti.controller.MbtiController    : POST /api/mbti/submit - Submitting test for user: 강감찬
+2025-12-30 11:57:03.411  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.submitTest() 서비스 호출 ==========
+2025-12-30 11:57:03.411  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : Parameter : [TestRequest(userName=강감찬, answers=[TestAnswer(questionId=1, selectedOption=A), TestAnswer(questionId=2, selectedOption=A), TestAnswer(questionId=3, selectedOption=A), TestAnswer(questionId=4, selectedOption=A), TestAnswer(questionId=5, selectedOption=A), TestAnswer(questionId=6, selectedOption=A), TestAnswer(questionId=7, selectedOption=A), TestAnswer(questionId=8, selectedOption=A), TestAnswer(questionId=9, selectedOption=A), TestAnswer(questionId=10, selectedOption=A), TestAnswer(questionId=11, selectedOption=A), TestAnswer(questionId=12, selectedOption=A)])]
+2025-12-30 11:57:03.412  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.mbti.service.MbtiServiceImpl    : Submitting test for user: 강감찬
+2025-12-30 11:57:03.421  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.mbti.service.MbtiServiceImpl    : Calculated MBTI type: ESTJ
+2025-12-30 11:57:03.422  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.mbti.service.MbtiServiceImpl    : Saved result with id: 3
+2025-12-30 11:57:03.433  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.mbti.service.MbtiServiceImpl    : Saved 12 answers
+2025-12-30 11:57:03.433  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.mbti.service.MbtiServiceImpl    : Fetching result with id: 3
+2025-12-30 11:57:03.435  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : Running Time : 23ms
+2025-12-30 11:57:03.435  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:59:21.496  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : [MbtiController.getAllQuestions()] 요청 / ip : 127.0.0.1
+2025-12-30 11:59:21.496  INFO 18192 --- [http-nio-8080-exec-7] c.mbti.mbti.controller.MbtiController    : GET /api/mbti/questions - Fetching all questions
+2025-12-30 11:59:21.497  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.getAllQuestions() 서비스 호출 ==========
+2025-12-30 11:59:21.497  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : Parameter : []
+2025-12-30 11:59:21.497  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
+2025-12-30 11:59:21.499  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : Running Time : 2ms
+2025-12-30 11:59:21.499  INFO 18192 --- [http-nio-8080-exec-7] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 11:59:24.144  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : [MbtiController.submitTest()] 요청 / ip : 127.0.0.1
+2025-12-30 11:59:24.144  INFO 18192 --- [http-nio-8080-exec-9] c.mbti.mbti.controller.MbtiController    : POST /api/mbti/submit - Submitting test for user: 강감찬
+2025-12-30 11:59:24.145  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.submitTest() 서비스 호출 ==========
+2025-12-30 11:59:24.145  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : Parameter : [TestRequest(userName=강감찬, answers=[TestAnswer(questionId=1, selectedOption=A), TestAnswer(questionId=2, selectedOption=A), TestAnswer(questionId=3, selectedOption=A), TestAnswer(questionId=4, selectedOption=A), TestAnswer(questionId=5, selectedOption=A), TestAnswer(questionId=6, selectedOption=A), TestAnswer(questionId=7, selectedOption=A), TestAnswer(questionId=8, selectedOption=A), TestAnswer(questionId=9, selectedOption=A), TestAnswer(questionId=10, selectedOption=A), TestAnswer(questionId=11, selectedOption=A), TestAnswer(questionId=12, selectedOption=A)])]
+2025-12-30 11:59:24.146  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.mbti.service.MbtiServiceImpl    : Submitting test for user: 강감찬
+2025-12-30 11:59:24.156  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.mbti.service.MbtiServiceImpl    : Calculated MBTI type: ESTJ
+2025-12-30 11:59:24.157  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.mbti.service.MbtiServiceImpl    : Saved result with id: 4
+2025-12-30 11:59:24.166  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.mbti.service.MbtiServiceImpl    : Saved 12 answers
+2025-12-30 11:59:24.166  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.mbti.service.MbtiServiceImpl    : Fetching result with id: 4
+2025-12-30 11:59:24.168  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : Running Time : 23ms
+2025-12-30 11:59:24.169  INFO 18192 --- [http-nio-8080-exec-9] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 12:07:54.274  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : [MbtiController.getAllQuestions()] 요청 / ip : 127.0.0.1
+2025-12-30 12:07:54.274  INFO 18192 --- [http-nio-8080-exec-1] c.mbti.mbti.controller.MbtiController    : GET /api/mbti/questions - Fetching all questions
+2025-12-30 12:07:54.274  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.getAllQuestions() 서비스 호출 ==========
+2025-12-30 12:07:54.275  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : Parameter : []
+2025-12-30 12:07:54.275  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
+2025-12-30 12:07:54.277  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : Running Time : 2ms
+2025-12-30 12:07:54.277  INFO 18192 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 12:08:09.932  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : [MbtiController.submitTest()] 요청 / ip : 127.0.0.1
+2025-12-30 12:08:09.932  INFO 18192 --- [http-nio-8080-exec-3] c.mbti.mbti.controller.MbtiController    : POST /api/mbti/submit - Submitting test for user: 강감찬
+2025-12-30 12:08:09.933  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.submitTest() 서비스 호출 ==========
+2025-12-30 12:08:09.933  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : Parameter : [TestRequest(userName=강감찬, answers=[TestAnswer(questionId=1, selectedOption=A), TestAnswer(questionId=2, selectedOption=A), TestAnswer(questionId=3, selectedOption=A), TestAnswer(questionId=4, selectedOption=A), TestAnswer(questionId=5, selectedOption=A), TestAnswer(questionId=6, selectedOption=A), TestAnswer(questionId=7, selectedOption=A), TestAnswer(questionId=8, selectedOption=A), TestAnswer(questionId=9, selectedOption=A), TestAnswer(questionId=10, selectedOption=A), TestAnswer(questionId=11, selectedOption=A), TestAnswer(questionId=12, selectedOption=A)])]
+2025-12-30 12:08:09.933  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.mbti.service.MbtiServiceImpl    : Submitting test for user: 강감찬
+2025-12-30 12:08:09.942  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.mbti.service.MbtiServiceImpl    : Calculated MBTI type: ESTJ
+2025-12-30 12:08:09.944  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.mbti.service.MbtiServiceImpl    : Saved result with id: 5
+2025-12-30 12:08:09.962  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.mbti.service.MbtiServiceImpl    : Saved 12 answers
+2025-12-30 12:08:09.962  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.mbti.service.MbtiServiceImpl    : Fetching result with id: 5
+2025-12-30 12:08:09.964  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : Running Time : 31ms
+2025-12-30 12:08:09.964  INFO 18192 --- [http-nio-8080-exec-3] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 12:56:25.823  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : [MbtiController.getAllQuestions()] 요청 / ip : 127.0.0.1
+2025-12-30 12:56:25.825  INFO 18192 --- [http-nio-8080-exec-5] c.mbti.mbti.controller.MbtiController    : GET /api/mbti/questions - Fetching all questions
+2025-12-30 12:56:25.825  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : ========== MbtiServiceImpl.getAllQuestions() 서비스 호출 ==========
+2025-12-30 12:56:25.826  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : Parameter : []
+2025-12-30 12:56:25.826  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
+2025-12-30 12:56:25.835  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : Running Time : 9ms
+2025-12-30 12:56:25.835  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : ===================================================================================

@@ -83,6 +83,32 @@ class _HomeScreenState extends State<HomeScreen> {
             굳이 SizedBox 를 사용하여 버튼을 감쌀 필요 없지만
             상태관리나 디자인을 위해서 SizedBox 로 감싼다음 버튼을 작성하는 것도 방법이다.
             */
+            SizedBox(height: 20),
+          SizedBox(
+            width: 300,
+            height: 50,
+            child: ElevatedButton(
+
+
+                onPressed: () {
+                  String name = _nameController.text.trim();
+
+                  if(name.isEmpty){
+                    return;
+                  }
+                  // 작성한 이름유저의 mbti 결과 확인
+                  context.go("/history", extra: name);
+
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey[300],
+                  foregroundColor: Colors.black87
+                ),
+                child: Text("이전 결과 보기",)),
+
+          )
+
+
           ],
         ),
       ),
