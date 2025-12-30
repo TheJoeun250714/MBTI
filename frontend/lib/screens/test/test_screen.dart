@@ -65,8 +65,9 @@ class _TestScreenState extends State<TestScreen> {
       if(currentQuestion < questions.length -1 ) {
         currentQuestion++; //다음질문으로 넘어가고
       } else {
+        submitTest();
         // 결과 화면으로 이동처리
-        _showResult();
+        //_showResult();
         // 잠시 결과화면을 보여주는 함수 호출
         // screens 에 /result/result_screen 명칭으로
         // 폴더와 파일 생성 후, main router 설정해준다음
@@ -75,7 +76,33 @@ class _TestScreenState extends State<TestScreen> {
       }
     });
   }
-
+  // 결과를 백엔드에 저장하기
+  void submitTest() async {
+    try {
+      final result = await ApiService.submitTest(widget.userName, answers);
+      
+      showDialog(context: context, 
+          builder: (context) => AlertDialog(
+            title: Text('검사 완료'),
+            content: Text(
+              '${widget.userName}님은 ${result['resultType']} 입니다.'
+            ),
+            actions: [
+              TextButton(onPressed: () => context.go("/"), child: Text('처음으로'))
+            ],
+          ));
+      
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("제출 실패했습니다."))
+      );
+    }
+  }
+  
+  
+  
+  
+  
   // 결과 화면을 Go_Router 설정할 수도 있고,
   // 함수 호출을 이용하여 임시적으로 결과에 대한 창을 띄울 수 있다.
   // _showResult = private 외부에서 사용할 수 없는 함수

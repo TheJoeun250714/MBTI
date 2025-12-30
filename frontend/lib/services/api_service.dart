@@ -37,7 +37,6 @@ class ApiService {
         'selectedOption':option
       });
     });
-
     final res = await http.post(
       Uri.parse('$url/submit'),
       headers: {'Content-Type':'application/json'},
@@ -46,14 +45,10 @@ class ApiService {
         'answers':answerList
       })
     );
-
     if(res.statusCode == 200 ){
       return json.decode(res.body);
     } else {
       throw Exception('제출 실패');
     }
-
   }
-
-
 }
