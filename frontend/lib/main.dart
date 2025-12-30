@@ -35,7 +35,7 @@ final GoRouter _router = GoRouter(
       GoRoute(
           path: '/result',
           builder: (context, state) {
-            final data = state.extra as Map<String, String>;
+            final data = state.extra as Map<String, dynamic>;
             /*
           생성된 객체를 사용할 수 는 있으나, 매개변수는 존재하지 않은 상태
           단순히 화면만 보여주는 형태
