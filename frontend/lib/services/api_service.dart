@@ -22,16 +22,81 @@ class ApiService {
   // 보통 백엔드나 외부 api 데이터를 가져올 때 자료형으로 Future 특정 자료형을 감싸서 사용
   static Future<List<Question>> getQuestions() async {
     final res = await http.get(Uri.parse('$url/questions'));
+  /*
+  http://localhost:8080/api/mbti/questions 로 접속했을 때 나오는 데이터
+  res.body                                = 백엔드에서 위 주소로 전달받은 JSON 문자열 -> 주소로 가져오는 데이터는 한 줄로 가져온다.
+   ‘[{ “id”:1, “questionText”:“질문1”,”optionA”:“A”,“optionB”:”B”},{ “id”:2, “questionText”:“질문2”,”optionA”:“A”,“optionB”:”B”},{ “id”:3, “questionText”:“질문3”,”optionA”:“A”,“optionB”:”B”}]’
 
+
+  json.decode()                           = 한 줄로 되어있는 JSON 문자열 데이터를 Dart 형식의 객체로 변환해서 사용
+  .map((json) => Question.fromJson(json)) = 변환을 할 때  각 데이터 하나씩 json이라는 변수이름에 담아서
+                                                     Question 객체로 변환작업을 첫 데이터부터 끝 데이터까지 모두 수행
+  .toList()                               = map 을 으로 출력된 결과를 List 목록 형태로 변환하여 사용
+   */
     if(res.statusCode == 200) {
-      return json.decode(res.body);
+      List<dynamic> jsonList = json.decode(res.body);
+      return  jsonList.map((json) => Question.fromJson(json)).toList();
     } else {
       throw Exception('불러오기 실패');
     }
   }
 
   // 결과 제출하기 post
+  /*
+  javaScript + java + c++ + sql
 
+
+   Map<int, String> answers = 소비자가 작성한 원본 데이터가 존재
+                              Map<int, String> answers = {
+                                1:'A',
+                                2:'B',
+                                3:'A'
+                                ...
+                              }
+   answers.entries          = Map 을 MaEntry 리스트로 변환
+                       결과 = [
+                                MapEntry(key: 1, value='A'),
+                                MapEntry(key: 2, value='B'),
+                                MapEntry(key: 3, value='A'),
+                                ...
+                              ]
+   .map((en) {              = 각 MapEntry를 TestAnswer로 변환
+      return TestAnswer(
+          questionId: en.key,           // 1, 2, 3
+          selectedOption: en.value      // 'A', 'B', 'A'
+      );
+   })
+   .toList()                = 최종 결과로 List 형태로 변환
+
+   MapEntry - Map의 키-값 쌍을 나타내는 객체
+   entry 의 entries 반복문 형태
+
+   현재 우리가 작성한 백엔드에서 위와 같은 형식을 유지하고 있기 때문에
+   만약에 TestAnswer 와 같은 응답전용 객체를 java에서 사용하지 않는다면  entries  작업까지 할 필요는 없음
+
+
+   Entry = DB 하나의 컬럼에 존재하는 데이터
+
+   사전 한 권 = Map
+   사전의 각 항목 = Entry
+
+   책 사전 내부에 존재하는 예시 데이터
+   키          값
+   apple   -> 사과         = entry 1개
+   banana  -> 바나나       = entry 1개
+   cherry  -> 체리         = entry 1개
+
+   총 entry  = 개체 3개
+
+   Entries = 모든 entry 항목 종합
+            모든 키-값 쌍들
+
+    전화번호부 한 줄 :
+      이름(key) : 홍길동
+      전화번호(value) : 010-1234-5678
+
+    -> entry 1개 = 객체 1개의 데이터
+   */
   static Future<Result> submitTest(String userName, Map<int, String> answers) async {
     List<TestAnswer> answerList = answers.entries.map((en) {
       return TestAnswer(questionId: en.key, selectedOption: en.value);
@@ -45,14 +110,35 @@ class ApiService {
         body: json.encode(request.toJson())
     );
     if(res.statusCode == 200 ){
-      return json.decode(res.body);
+      Map<String, dynamic> jsonData= json.decode(res.body);
+      return Result.fromJson(jsonData);
+
     } else {
       throw Exception('제출 실패');
     }
   }
 }
 
+/*
+ Map<String, dynamic> jsonData= json.decode(res.body);
+ String = 키 명칭들은 문자열로 확정!
+ <String   ,     dynamic>
+    "id"            1       숫자
+   "userName"    "강감찬"    문자열
+   "resulType"    "ENFP"     문자열
+   "isActive"     true,     불리언
+   "createdAt"    null,    null
+   "scores"       [2,3,1,..] List
 
+dynamic 대신에 Object 사용하면 안되나요?  ^^ 안돼요.
+
+Object 에는 null 불가능
+      └─────── Dart Object 타입은 null 불가능 컴파일에서는 연산 불가 2.1.2 부터 null 사용 금지이고 dynamic 써라
+      └─────── Java Object 타입은 null   가능~
+dynamic  은 null   가능
+      └───────  컴파일에서는 우선 타입이 무엇인지 ???? 상태로 일단 OK
+            └─────── 실행하면서 타입이 맞지 않으면 에러 발생
+ */
 
 class DynamicApiService {
 
