@@ -25,6 +25,7 @@ class _TestScreenState extends State<TestScreen> {
     loadQuestions();
   } // 백엔드 데이터를 가지고 올동안 잠시 대기하는 로딩중
 
+  // 질문 백엔드에서 불러오는 기능
   void loadQuestions() async {
     try{
       final data =await ApiService.getQuestions();
@@ -34,8 +35,7 @@ class _TestScreenState extends State<TestScreen> {
       });
     } catch (e) {
       setState(() {
-
-        isLoading=true;
+        isLoading = false;
       });
 
     }
@@ -58,9 +58,11 @@ class _TestScreenState extends State<TestScreen> {
   */
   void selectAnswer(String option) {
     setState(() {
-      answers[currentQuestion] = option; //답변 저장
+      answers[questions[currentQuestion]['id']] = option; //답변 저장
 
-      if(currentQuestion <12) {
+      // DB에 존재하는 총 길이의 -1 까지의 수보다 작으면
+      // index 는 0부터 존재하기 때문에 총 길이의 -1까지가 db 데이터
+      if(currentQuestion < questions.length -1 ) {
         currentQuestion++; //다음질문으로 넘어가고
       } else {
         // 결과 화면으로 이동처리
@@ -99,6 +101,16 @@ class _TestScreenState extends State<TestScreen> {
   // ui
   @override
   Widget build(BuildContext context) {
+    // 백엔드에서 데이터를 가져오는 중인 경우 로딩 화면
+    if(isLoading) {
+      return Scaffold(
+        appBar: AppBar(title: Text('불러오는 중...')),
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
+
+
     // 임시로 2문제만 있으므로 인덱스 처리를 잠시 하는 것이고
     // 나중에는 삭제할 코드들
     int questionIndex = currentQuestion - 1;
@@ -106,6 +118,10 @@ class _TestScreenState extends State<TestScreen> {
     if(questionIndex >= questions.length) {
       questionIndex = questions.length -1;
     }
+
+    // 백엔드에서 가져온 데이터 중에서 현재 질문에 해당하는 데이터를
+    // q 변수이름에 담기
+    var q = questions[currentQuestion];
 
     return Scaffold(
       appBar: AppBar(
@@ -122,16 +138,14 @@ class _TestScreenState extends State<TestScreen> {
           // ${변수이름.내부속성이름}
           // $변수이름단독하나
           Text(
-            '질문 $currentQuestion / 12',
+            '질문 ${currentQuestion + 1} / ${questions.length}',
             style: TextStyle(fontSize: 20, color: Colors.grey),
           ),
           SizedBox(height: 20),
 
           // 진행 바
-          // currentQuestion / 12 = 처음 시작을 하고 있기 때문에 진행중인 표기
-          // minHeight: 10        = 최소 유지해야하는 프로그래스바의 세로 크기
           LinearProgressIndicator(
-            value: currentQuestion / 12,
+            value: (currentQuestion + 1) / questions.length,
             minHeight: 10,
           ),
           SizedBox(height: 20),
@@ -148,7 +162,7 @@ class _TestScreenState extends State<TestScreen> {
              questions[questionIndex]['text'] as String,
             *
             * */
-            questions[questionIndex]['text'] ?? '질문 없음',
+            q['questionText'] ?? '질문 없음',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
@@ -162,7 +176,7 @@ class _TestScreenState extends State<TestScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue
                 ),
-                child: Text(questions[questionIndex]['optionA']!,
+                child: Text(q['optionA']!,
                 style: TextStyle(fontSize: 20, color: Colors.white),
                 )),
           ),
@@ -175,7 +189,7 @@ class _TestScreenState extends State<TestScreen> {
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue
                 ),
-                child: Text(questions[questionIndex]['optionB']!,
+                child: Text(q['optionB']!,
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )),
           ),
