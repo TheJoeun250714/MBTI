@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 // result 스크린에서 채팅을 하거나, 숫자값을 추가하거나 실질적으로 화면 자체에서 변경되는 데이터가 없으므로
 // statelesswidget으로 작성 가능하다.
 // SingleChildScrollView -> 화면은 움직이는 화면이기 때문에 less 사용 불가
+
+// 과제 : 로딩중 화면 메세지 없이 import하여 개발자가 원하는 본인 방식대로 추가
 class ResultScreen extends StatefulWidget {
   final String userName;
   final String resultType;

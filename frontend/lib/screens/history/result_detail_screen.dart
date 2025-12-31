@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/models/result_model.dart';
 import 'package:frontend/services/api_service.dart';
+import 'package:frontend/widgets/loading_view.dart';
 import 'package:go_router/go_router.dart';
 /*
 * 과제 : less로 변경하기
+* 과제 : ErrorView 추가 errorMessage = "검사 기록을 불러오는데 실패했습니다"
 *
 * */
 
@@ -80,7 +82,7 @@ class _ResultDetailScreenState extends State<ResultDetailScreen> {
       ),
 
       body: isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? LoadingView(message: '유형을 불러오는 중입니다.')
           // ListView.builder 는 itemCount 가 없으면
           // 내부 목록 리스트를 몇 개 만들어야 하는지 예상할 수 없으므로
           // RangeError 발생
