@@ -127,3 +127,5 @@
 2025-12-30 12:56:25.826  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.mbti.service.MbtiServiceImpl    : Fetching all questions
 2025-12-30 12:56:25.835  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : Running Time : 9ms
 2025-12-30 12:56:25.835  INFO 18192 --- [http-nio-8080-exec-5] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2025-12-30 15:42:36.790  INFO 18192 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-30 15:42:36.837  INFO 18192 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

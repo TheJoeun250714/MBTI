@@ -52,16 +52,16 @@ final GoRouter _router = GoRouter(
       GoRoute(
           path: '/history',
           builder: (context, state) {
-            final data = state.extra as Map<String, dynamic>;
+            final userName = state.extra as String;
             /*
           생성된 객체를 사용할 수 는 있으나, 매개변수는 존재하지 않은 상태
           단순히 화면만 보여주는 형태
           const TestScreen({super.key});
 
           * */
-            return ResultDetailScreen(
-
-            );
+            //return ResultDetailScreen( userName:state.extra as String );
+            //                         required      final useName
+            return ResultDetailScreen( userName    : userName);
           }
       )
     ]);

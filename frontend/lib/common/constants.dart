@@ -64,7 +64,7 @@ class MbtiDimensions{
 
 }
 
-class ErrorMessages{
+  class ErrorMessages{
   static const String networkError = '네트워크 연결을 확인해주세요.';
   static const String serverError = '서버 오류가 발생했습니다..';
   static const String loadFailed = '데이터를 불러오는데 실패했습니다.';
