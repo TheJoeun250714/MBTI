@@ -84,6 +84,8 @@ class _ResultDetailScreenState extends State<ResultDetailScreen> {
           // ListView.builder 는 itemCount 가 없으면
           // 내부 목록 리스트를 몇 개 만들어야 하는지 예상할 수 없으므로
           // RangeError 발생
+          : results.isEmpty
+          ? Center(child: Text('검사 기록이 없습니다.', style: TextStyle(fontSize: 18)))
           : ListView.builder(
               padding: EdgeInsets.all(16),
               itemCount: results.length,
@@ -100,23 +102,38 @@ class _ResultDetailScreenState extends State<ResultDetailScreen> {
                       ),
                     ),
                     //  숙소이름
-                    title: Text(r.resultType, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                    title: Text(
+                      r.resultType,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     // 예약 기본정보
-                    subtitle: Text('E:${r.eScore} I:${r.iScore} S:${r.sScore} N:${r.nScore} \n'
-                        'T:${r.tScore} F:${r.fScore} J:${r.jScore} P:${r.pScore}'),
+                    subtitle: Text(
+                      'E:${r.eScore} I:${r.iScore} S:${r.sScore} N:${r.nScore} \n'
+                      'T:${r.tScore} F:${r.fScore} J:${r.jScore} P:${r.pScore}',
+                    ),
                     // 클릭하면 보인다라는 아이콘 형태의 모형
                     trailing: Icon(Icons.arrow_forward_ios),
                     // 한 줄의 어떤 곳을 선택하더라도 세부 정보를 확인할 수 있는 모달창 띄우기
                     // 예약 세부 내용이 담긴 모달창
-                    onTap: (){
-                      showDialog(context: context, 
-                          builder: (context) => AlertDialog(
-                            title: Text(r.resultType),
-                            content: Text('${r.typeName ?? r.resultType} \n\n ${r.description ??"정보없음"}'),
-                            actions: [
-                              TextButton(onPressed: () => Navigator.pop(context), child: Text('닫기'))
-                            ],
-                          ));
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text(r.resultType),
+                          content: Text(
+                            '${r.typeName ?? r.resultType} \n\n ${r.description ?? "정보없음"}',
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text('닫기'),
+                            ),
+                          ],
+                        ),
+                      );
                     },
                   ),
                 );
