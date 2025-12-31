@@ -46,7 +46,15 @@ final GoRouter _router = GoRouter(
           * */
             return ResultScreen(
                 userName: data['userName']!,
-            resultType: data['resultType']!
+              resultType: data['resultType']!,
+              eScore: data['eScore']!,
+              iScore: data['iScore']!,
+              sScore: data['sScore']!,
+              nScore: data['nScore']!,
+              tScore: data['tScore']!,
+              fScore: data['fScore']!,
+              jScore: data['jScore']!,
+              pScore: data['pScore']!,
             );
           }
       ),
