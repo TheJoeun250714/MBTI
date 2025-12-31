@@ -63,7 +63,8 @@ class ResultScreen extends StatelessWidget {
               SizedBox(
                 width: 300,
                 height: 50,
-                child: ElevatedButton(onPressed: () => context.go("/"), child: Text('처음으로')),
+                child: ElevatedButton(onPressed: () => context.go("/"),
+                    child: Text('처음으로')),
               )
             ],
           ),

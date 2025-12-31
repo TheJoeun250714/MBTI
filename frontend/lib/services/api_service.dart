@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:frontend/common/constants.dart';
@@ -8,6 +7,7 @@ import 'package:frontend/models/question_model.dart';
 import 'package:frontend/models/result_model.dart';
 import 'package:frontend/models/test_request_model.dart';
 import 'package:http/http.dart' as http;
+
 /* final 에 비하여 const 가벼움
   *  단기적으로 값 변경하지 못하도록 상수처리 할 때 = final
   *  장기적으로 전체 공유하는           상수처리 값 = const
@@ -24,15 +24,18 @@ class ApiService {
   static Future<List<Question>> getQuestions() async {
     final res = await http.get(Uri.parse('$url/questions'));
 
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       List<dynamic> jsonList = json.decode(res.body);
-      return  jsonList.map((json) => Question.fromJson(json)).toList();
+      return jsonList.map((json) => Question.fromJson(json)).toList();
     } else {
       throw Exception(ErrorMessages.loadFailed);
     }
   }
 
-  static Future<Result> submitTest(String userName, Map<int, String> answers) async {
+  static Future<Result> submitTest(
+    String userName,
+    Map<int, String> answers,
+  ) async {
     List<TestAnswer> answerList = answers.entries.map((en) {
       return TestAnswer(questionId: en.key, selectedOption: en.value);
     }).toList();
@@ -41,23 +44,24 @@ class ApiService {
 
     final res = await http.post(
       // http://localhost:8080/api/mbti/submit
-        Uri.parse('$url${ApiConstants.submit}'),
-        headers: {'Content-Type':'application/json'},
-        body: json.encode(request.toJson())
+      Uri.parse('$url${ApiConstants.submit}'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(request.toJson()),
     );
-    if(res.statusCode == 200 ){
-      Map<String, dynamic> jsonData= json.decode(res.body);
+    if (res.statusCode == 200) {
+      Map<String, dynamic> jsonData = json.decode(res.body);
       return Result.fromJson(jsonData);
-
     } else {
       throw Exception(ErrorMessages.submitFailed);
     }
   }
 
   static Future<List<Result>> getResultsByUserName(String userName) async {
-    final res = await http.get(Uri.parse('$url${ApiConstants.results}?userName=$userName'));
+    final res = await http.get(
+      Uri.parse('$url${ApiConstants.results}?userName=$userName'),
+    );
 
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       List<dynamic> jsonList = json.decode(res.body);
       return jsonList.map((json) => Result.fromJson(json)).toList();
     } else {
@@ -66,13 +70,11 @@ class ApiService {
     }
   }
 
-
-
   // 모든 MBTI 유형 조회
   static Future<List<MbtiType>> getAllMbtiTypes() async {
     final res = await http.get(Uri.parse('$url${ApiConstants.types}'));
 
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       List<dynamic> jsonList = json.decode(res.body);
       return jsonList.map((json) => MbtiType.fromJson(json)).toList();
     } else {
@@ -80,11 +82,11 @@ class ApiService {
     }
   }
 
-// 특정 MBTI 유형 조회
+  // 특정 MBTI 유형 조회
   static Future<MbtiType> getMbtiTypeByCode(String typeCode) async {
     final res = await http.get(Uri.parse('$url${ApiConstants.types}$typeCode'));
 
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       Map<String, dynamic> jsonData = json.decode(res.body);
       return MbtiType.fromJson(jsonData);
     } else {
@@ -97,20 +99,47 @@ class ApiService {
   // method = getResultById(int id)
   // http.get
   // Map<String, dynamic>
+  static Future<Result> getResultById(int id) async {
+    final res = await http.get(Uri.parse('$url${ApiConstants.result}/$id'));
 
+    if (res.statusCode == 200) {
+      Map<String, dynamic> jsonData = json.decode(res.body);
+      return Result.fromJson(jsonData);
+    } else {
+      throw Exception(ErrorMessages.loadFailed);
+    }
+  }
 
   // 결과 삭제
   // GET /api/mbti/result/{id}
   // method = deleteResult(int id)
   // http.delete
   // final res
+  // Future 예상결과로 백엔드에서 진행한 결과에 대한 return 없이 기능만 수행할 것
+  static Future<void> deleteResult(int id) async {
+    final res = await http.delete(Uri.parse('$url${ApiConstants.result}/$id'));
+
+    if (res.statusCode != 200) {
+      throw Exception("삭제에 실패했습니다.");
+    }
+  }
 
   // Health Check = 백엔드 상태 관리용 api
   // GET /api/mbti/health
   // healthCheck
   // final res
+  // 개발 회사 상태 확인용 API
+  static Future<Result> healthCheck(int id) async {
+    final res = await http.get(Uri.parse('$url${ApiConstants.result}${ApiConstants.health}'));
 
-/*
+    if (res.statusCode == 200) {
+      Map<String, dynamic> jsonData = json.decode(res.body);
+      return Result.fromJson(jsonData);
+    } else {
+      throw Exception(ErrorMessages.serverError);
+    }
+  }
+  /*
 final               res = http.Response 라는 타입으로 자동 지정
 final http.Response res =
 
@@ -121,20 +150,16 @@ final int           res = 타입을 명확히 지정
 final   a = 1; // int 로 자동 타입 확인
 개발자가 만든 자료형이나 클래스형 자료형은 필히 타입을 작성해주는 것이 좋음
  */
-
-
 }
 
-
 class ModelsApiService {
-
   static const String url = 'http://localhost:8080/api/mbti';
 
   // 백엔드 컨트롤러에서 질문 가져오기
   // 보통 백엔드나 외부 api 데이터를 가져올 때 자료형으로 Future 특정 자료형을 감싸서 사용
   static Future<List<Question>> getQuestions() async {
     final res = await http.get(Uri.parse('$url/questions'));
-  /*
+    /*
   http://localhost:8080/api/mbti/questions 로 접속했을 때 나오는 데이터
   res.body                                = 백엔드에서 위 주소로 전달받은 JSON 문자열 -> 주소로 가져오는 데이터는 한 줄로 가져온다.
    ‘[{ “id”:1, “questionText”:“질문1”,”optionA”:“A”,“optionB”:”B”},{ “id”:2, “questionText”:“질문2”,”optionA”:“A”,“optionB”:”B”},{ “id”:3, “questionText”:“질문3”,”optionA”:“A”,“optionB”:”B”}]’
@@ -145,9 +170,9 @@ class ModelsApiService {
                                                      Question 객체로 변환작업을 첫 데이터부터 끝 데이터까지 모두 수행
   .toList()                               = map 을 으로 출력된 결과를 List 목록 형태로 변환하여 사용
    */
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       List<dynamic> jsonList = json.decode(res.body);
-      return  jsonList.map((json) => Question.fromJson(json)).toList();
+      return jsonList.map((json) => Question.fromJson(json)).toList();
     } else {
       throw Exception('불러오기 실패');
     }
@@ -209,7 +234,10 @@ class ModelsApiService {
 
     -> entry 1개 = 객체 1개의 데이터
    */
-  static Future<Result> submitTest(String userName, Map<int, String> answers) async {
+  static Future<Result> submitTest(
+    String userName,
+    Map<int, String> answers,
+  ) async {
     List<TestAnswer> answerList = answers.entries.map((en) {
       return TestAnswer(questionId: en.key, selectedOption: en.value);
     }).toList();
@@ -217,14 +245,13 @@ class ModelsApiService {
     TestRequest request = TestRequest(userName: userName, answers: answerList);
 
     final res = await http.post(
-        Uri.parse('$url/submit'),
-        headers: {'Content-Type':'application/json'},
-        body: json.encode(request.toJson())
+      Uri.parse('$url/submit'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(request.toJson()),
     );
-    if(res.statusCode == 200 ){
-      Map<String, dynamic> jsonData= json.decode(res.body);
+    if (res.statusCode == 200) {
+      Map<String, dynamic> jsonData = json.decode(res.body);
       return Result.fromJson(jsonData);
-
     } else {
       throw Exception('제출 실패');
     }
@@ -243,7 +270,7 @@ class ModelsApiService {
   static Future<List<Result>> getResultsByUserName(String userName) async {
     final res = await http.get(Uri.parse('$url/results?userName=$userName'));
 
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       List<dynamic> jsonList = json.decode(res.body);
       return jsonList.map((json) => Result.fromJson(json)).toList();
     } else {
@@ -252,13 +279,11 @@ class ModelsApiService {
     }
   }
 
-
-
   // 모든 MBTI 유형 조회
   static Future<List<MbtiType>> getAllMbtiTypes() async {
     final res = await http.get(Uri.parse('$url/types'));
 
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       List<dynamic> jsonList = json.decode(res.body);
       return jsonList.map((json) => MbtiType.fromJson(json)).toList();
     } else {
@@ -266,24 +291,20 @@ class ModelsApiService {
     }
   }
 
-// 특정 MBTI 유형 조회
+  // 특정 MBTI 유형 조회
   static Future<MbtiType> getMbtiTypeByCode(String typeCode) async {
     final res = await http.get(Uri.parse('$url/types/$typeCode'));
 
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       Map<String, dynamic> jsonData = json.decode(res.body);
       return MbtiType.fromJson(jsonData);
     } else {
       throw Exception('MBTI 유형 조회 실패');
     }
   }
-
-
 }
 
-
 class DynamicApiService {
-
   static const String url = 'http://localhost:8080/api/mbti';
 
   // 백엔드 컨트롤러에서 질문 가져오기
@@ -292,7 +313,7 @@ class DynamicApiService {
   static Future<List<dynamic>> getQuestions() async {
     final res = await http.get(Uri.parse('$url/questions'));
 
-    if(res.statusCode == 200) {
+    if (res.statusCode == 200) {
       return json.decode(res.body);
     } else {
       throw Exception('불러오기 실패');
@@ -301,31 +322,26 @@ class DynamicApiService {
 
   // 결과 제출하기 post
 
-  static Future<Map<String,dynamic>> submitTest(String userName, Map<int, String> answers) async {
+  static Future<Map<String, dynamic>> submitTest(
+    String userName,
+    Map<int, String> answers,
+  ) async {
     List<Map<String, dynamic>> answerList = [];
     answers.forEach((questionId, option) {
-      answerList.add({
-        'questionId' : questionId,
-        'selectedOption':option
-      });
+      answerList.add({'questionId': questionId, 'selectedOption': option});
     });
     final res = await http.post(
-        Uri.parse('$url/submit'),
-        headers: {'Content-Type':'application/json'},
-        body: json.encode({
-          'userName':userName,
-          'answers':answerList
-        })
+      Uri.parse('$url/submit'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({'userName': userName, 'answers': answerList}),
     );
-    if(res.statusCode == 200 ){
+    if (res.statusCode == 200) {
       return json.decode(res.body);
     } else {
       throw Exception('제출 실패');
     }
   }
 }
-
-
 
 /*
  Map<String, dynamic> jsonData= json.decode(res.body);
@@ -347,4 +363,3 @@ dynamic  은 null   가능
       └───────  컴파일에서는 우선 타입이 무엇인지 ???? 상태로 일단 OK
             └─────── 실행하면서 타입이 맞지 않으면 에러 발생
  */
-

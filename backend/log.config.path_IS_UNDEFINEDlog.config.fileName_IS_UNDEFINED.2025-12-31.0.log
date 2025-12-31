@@ -612,3 +612,253 @@ java.lang.NullPointerException: Cannot read field "generatedClass" because "data
 2025-12-31 11:44:27.382  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
 2025-12-31 11:44:27.386  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 1.147 seconds (process running for 7825.04)
 2025-12-31 11:44:27.387  INFO 18700 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-31 12:00:05.232  INFO 18700 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 17 class path changes (0 additions, 17 deletions, 0 modifications)
+2025-12-31 12:00:05.236  INFO 18700 --- [Thread-77] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
+2025-12-31 12:00:05.241  INFO 18700 --- [Thread-77] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
+2025-12-31 12:00:05.311  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:00:05.311  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:00:05.495  WARN 18700 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mbti]' package. Please check your configuration.
+2025-12-31 12:00:05.496  WARN 18700 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+2025-12-31 12:00:05.499  INFO 18700 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-31 12:00:05.504 ERROR 18700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783)
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:321)
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:562)
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:407)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:533)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:310)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:789)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.mbti.BackendApplication.main(BackendApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+
+2025-12-31 12:00:07.983  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:00:07.983  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:00:08.302  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-31 12:00:08.303  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-31 12:00:08.303  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2025-12-31 12:00:08.330  INFO 18700 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-31 12:00:08.330  INFO 18700 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 346 ms
+2025-12-31 12:00:08.366  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
+2025-12-31 12:00:08.438  INFO 18700 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-13 - Added connection org.postgresql.jdbc.PgConnection@3a2ac6c2
+2025-12-31 12:00:08.438  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
+2025-12-31 12:00:08.983  INFO 18700 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-31 12:00:08.996  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-12-31 12:00:08.999  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 1.04 seconds (process running for 8766.666)
+2025-12-31 12:00:08.999  INFO 18700 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-31 12:12:41.695  INFO 18700 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 17 class path changes (0 additions, 17 deletions, 0 modifications)
+2025-12-31 12:12:41.701  INFO 18700 --- [Thread-84] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2025-12-31 12:12:41.709  INFO 18700 --- [Thread-84] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
+2025-12-31 12:12:41.780  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:12:41.781  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:12:41.994  WARN 18700 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mbti]' package. Please check your configuration.
+2025-12-31 12:12:41.995  WARN 18700 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+2025-12-31 12:12:41.998  INFO 18700 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-31 12:12:42.003 ERROR 18700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783)
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:321)
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:562)
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:407)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:533)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:310)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:789)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.mbti.BackendApplication.main(BackendApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+
+2025-12-31 12:12:45.489  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:12:45.489  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:12:45.857  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-31 12:12:45.858  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-31 12:12:45.859  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2025-12-31 12:12:45.881  INFO 18700 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-31 12:12:45.881  INFO 18700 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 390 ms
+2025-12-31 12:12:45.917  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
+2025-12-31 12:12:45.992  INFO 18700 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-14 - Added connection org.postgresql.jdbc.PgConnection@7cee8758
+2025-12-31 12:12:45.993  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
+2025-12-31 12:12:46.535  INFO 18700 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-31 12:12:46.547  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-12-31 12:12:46.550  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 1.082 seconds (process running for 9524.225)
+2025-12-31 12:12:46.551  INFO 18700 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-31 12:15:22.751  INFO 18700 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 17 class path changes (0 additions, 17 deletions, 0 modifications)
+2025-12-31 12:15:22.754  INFO 18700 --- [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown initiated...
+2025-12-31 12:15:22.762  INFO 18700 --- [Thread-91] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown completed.
+2025-12-31 12:15:22.837  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:15:22.837  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:15:23.094  WARN 18700 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mbti]' package. Please check your configuration.
+2025-12-31 12:15:23.095  WARN 18700 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+2025-12-31 12:15:23.097  INFO 18700 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-31 12:15:23.103 ERROR 18700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783)
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:321)
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:562)
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:407)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:533)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:310)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:789)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.mbti.BackendApplication.main(BackendApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+
+2025-12-31 12:15:26.600  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:15:26.601  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:15:26.936  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-31 12:15:26.937  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-31 12:15:26.937  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2025-12-31 12:15:26.963  INFO 18700 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-31 12:15:26.963  INFO 18700 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 361 ms
+2025-12-31 12:15:27.009  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Starting...
+2025-12-31 12:15:27.185  INFO 18700 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-15 - Added connection org.postgresql.jdbc.PgConnection@796e0e4a
+2025-12-31 12:15:27.186  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Start completed.
+2025-12-31 12:15:27.895  INFO 18700 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-31 12:15:27.909  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-12-31 12:15:27.913  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 1.337 seconds (process running for 9685.591)
+2025-12-31 12:15:27.914  INFO 18700 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-31 12:23:26.406  INFO 18700 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 17 class path changes (0 additions, 17 deletions, 0 modifications)
+2025-12-31 12:23:26.410  INFO 18700 --- [Thread-98] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Shutdown initiated...
+2025-12-31 12:23:26.420  INFO 18700 --- [Thread-98] com.zaxxer.hikari.HikariDataSource       : HikariPool-15 - Shutdown completed.
+2025-12-31 12:23:26.497  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:23:26.497  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:23:26.712  WARN 18700 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mbti]' package. Please check your configuration.
+2025-12-31 12:23:26.714  WARN 18700 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+2025-12-31 12:23:26.718  INFO 18700 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-31 12:23:26.722 ERROR 18700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783)
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:321)
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:562)
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:407)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:533)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:310)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:789)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.mbti.BackendApplication.main(BackendApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+
+2025-12-31 12:23:30.642  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:23:30.642  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:23:31.037  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-31 12:23:31.041  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-31 12:23:31.041  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2025-12-31 12:23:31.061  INFO 18700 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-31 12:23:31.062  INFO 18700 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 419 ms
+2025-12-31 12:23:31.106  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Starting...
+2025-12-31 12:23:31.284  INFO 18700 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-16 - Added connection org.postgresql.jdbc.PgConnection@4042aed4
+2025-12-31 12:23:31.284  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Start completed.
+2025-12-31 12:23:31.939  INFO 18700 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-31 12:23:31.952  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-12-31 12:23:31.957  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 1.339 seconds (process running for 10169.638)
+2025-12-31 12:23:31.958  INFO 18700 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-31 12:30:13.134  INFO 18700 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 17 class path changes (0 additions, 17 deletions, 0 modifications)
+2025-12-31 12:30:13.138  INFO 18700 --- [Thread-105] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown initiated...
+2025-12-31 12:30:13.142  INFO 18700 --- [Thread-105] com.zaxxer.hikari.HikariDataSource       : HikariPool-16 - Shutdown completed.
+2025-12-31 12:30:13.211  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:30:13.212  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:30:13.397  WARN 18700 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mbti]' package. Please check your configuration.
+2025-12-31 12:30:13.397  WARN 18700 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+2025-12-31 12:30:13.400  INFO 18700 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-31 12:30:13.405 ERROR 18700 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783)
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:321)
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:562)
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:407)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:533)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:310)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:153)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:789)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:464)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.mbti.BackendApplication.main(BackendApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+
+2025-12-31 12:30:16.274  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 18700 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2025-12-31 12:30:16.274  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2025-12-31 12:30:16.612  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-31 12:30:16.614  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-31 12:30:16.614  INFO 18700 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2025-12-31 12:30:16.633  INFO 18700 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-31 12:30:16.633  INFO 18700 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 358 ms
+2025-12-31 12:30:16.666  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Starting...
+2025-12-31 12:30:16.852  INFO 18700 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-17 - Added connection org.postgresql.jdbc.PgConnection@15a025bd
+2025-12-31 12:30:16.852  INFO 18700 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-17 - Start completed.
+2025-12-31 12:30:17.397  INFO 18700 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-31 12:30:17.410  INFO 18700 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-12-31 12:30:17.413  INFO 18700 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 1.161 seconds (process running for 10575.097)
+2025-12-31 12:30:17.414  INFO 18700 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
