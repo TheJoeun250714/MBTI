@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/models/result_model.dart';
 import 'package:frontend/widgets/score_bar.dart';
 import 'package:go_router/go_router.dart';
+
 // result 스크린에서 채팅을 하거나, 숫자값을 추가하거나 실질적으로 화면 자체에서 변경되는 데이터가 없으므로
 // statelesswidget으로 작성 가능하다.
 // SingleChildScrollView -> 화면은 움직이는 화면이기 때문에 less 사용 불가
 
 // 과제 : 로딩중 화면 메세지 없이 import하여 개발자가 원하는 본인 방식대로 추가
 class ResultScreen extends StatefulWidget {
+  final Result result;
+
+  const ResultScreen({super.key, required this.result});
+
+  /*
   final String userName;
   final String resultType;
   final int eScore;
@@ -33,10 +40,12 @@ class ResultScreen extends StatefulWidget {
 
   });
 
+   */
+
   @override
   State<ResultScreen> createState() => _ResultScreenState();
-
 }
+
 class _ResultScreenState extends State<ResultScreen> {
   bool isLoading = true;
 
@@ -74,13 +83,13 @@ class _ResultScreenState extends State<ResultScreen> {
                 ),
                 child: Column(
                   children: [
-                    Text('${widget.userName}님의 MBTI는'),
+                    Text('${widget.result.userName}님의 MBTI는'),
 
                     SizedBox(height: 20),
 
                     // MBTI 결과 (큰 글씨로)
                     // widget.resultType 사용
-                    Text('${widget.resultType}'),
+                    Text('${widget.result.resultType}'),
                     SizedBox(height: 10),
 
                     // '입니다' 텍스트
@@ -103,36 +112,36 @@ class _ResultScreenState extends State<ResultScreen> {
                 decoration: BoxDecoration(
                   color: Colors.grey[50],
                   borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Colors.grey[300]!)
+                  border: Border.all(color: Colors.grey[300]!),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('상세 점수'),
-                    SizedBox(height: 16,),
+                    SizedBox(height: 16),
                     ScoreBar(
                       label1: 'E (외향)',
                       label2: 'I (내향)',
-                      score1: widget.eScore,
-                      score2: widget.iScore,
+                      score1: widget.result.eScore,
+                      score2: widget.result.iScore,
                     ),
                     ScoreBar(
                       label1: 'S (감각)',
                       label2: 'N (직관)',
-                      score1: widget.sScore,
-                      score2: widget.nScore,
+                      score1: widget.result.sScore,
+                      score2: widget.result.nScore,
                     ),
                     ScoreBar(
                       label1: 'T (사고)',
                       label2: 'F (감정)',
-                      score1: widget.tScore,
-                      score2: widget.fScore,
+                      score1: widget.result.tScore,
+                      score2: widget.result.fScore,
                     ),
                     ScoreBar(
                       label1: 'J (판단)',
                       label2: 'P (인식)',
-                      score1: widget.jScore,
-                      score2: widget.pScore,
+                      score1: widget.result.jScore,
+                      score2: widget.result.pScore,
                     ),
                   ],
                 ),
@@ -141,9 +150,11 @@ class _ResultScreenState extends State<ResultScreen> {
               SizedBox(
                 width: 300,
                 height: 50,
-                child: ElevatedButton(onPressed: () => context.go("/"),
-                    child: Text('처음으로')),
-              )
+                child: ElevatedButton(
+                  onPressed: () => context.go("/"),
+                  child: Text('처음으로'),
+                ),
+              ),
             ],
           ),
         ),

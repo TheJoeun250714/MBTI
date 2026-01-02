@@ -87,7 +87,8 @@ class _TestScreenState extends State<TestScreen> {
     try {
       final result = await ApiService.submitTest(widget.userName, answers);
       // mounted : 화면이 존재한다면 기능
-      if(mounted) {
+      /*
+       if(mounted) {
         context.go("/result", extra: {
           'userName':widget.userName,
           'resultType':result.resultType,
@@ -100,6 +101,11 @@ class _TestScreenState extends State<TestScreen> {
           'jScore': result.jScore,
           'pScore': result.pScore,
         });
+
+      }
+       */
+      if(mounted) {
+        context.go("/result", extra: result);
 
       }
 
