@@ -88,7 +88,17 @@ class LoginScreenState extends State<LoginScreen> {
 
       }
     } catch (e){
+      if(mounted) {
+        setState((){
+          _isLoading = false;
+        });
 
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+                content: Text('로그인에 실패했습니다. 다시 시도해주세요.'),
+            )
+        );
+      }
     }
   }
 
@@ -159,12 +169,15 @@ class LoginScreenState extends State<LoginScreen> {
                   width: 300,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: _isLoading ? null : _handleLogin,
+                      /*
                       if (_validateName()) {
                         String name = _nameController.text.trim();
                         context.go('/test', extra: name);
                       }
-                    },
+
+                       */
+
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
                       foregroundColor: Colors.white,
@@ -172,6 +185,24 @@ class LoginScreenState extends State<LoginScreen> {
                     child: Text('로그인하기'),
                   ),
                 ),
+
+                SizedBox(height:20),
+                Row(
+                  children:[
+                    Text("계정이 없으신가요?"),
+                    TextButton(
+                      onPressed:() => context.go('/signup'),
+                      child:Text("회원가입하기")
+
+                    )
+                  ]
+                  /*
+                  * 가운데 정렬 상태
+                  * 계정이 없으신가요? -> Text()
+                  *
+                  * TextButton 이용해서 회원가입하기 완성
+                  * */
+                )
               ],
             ),
           ),
