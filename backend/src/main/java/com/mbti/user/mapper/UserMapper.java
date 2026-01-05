@@ -13,4 +13,6 @@ public interface UserMapper {
     int insert(User user);
     int updateLastLogin(int id);
     int delete(int id);
+
+    int insertUser(User user);
 }

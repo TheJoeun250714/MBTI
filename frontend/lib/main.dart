@@ -3,12 +3,17 @@ import 'package:frontend/common/constants.dart';
 import 'package:frontend/models/result_model.dart';
 import 'package:frontend/screens/history/result_detail_screen.dart';
 import 'package:frontend/screens/home/home_screen.dart';
+import 'package:frontend/providers/auth_provider.dart';
+import 'package:frontend/screens/login/login_screen.dart';
+import 'package:frontend/screens/signup/signup_screen.dart';
 import 'package:frontend/screens/result/result_screen.dart';
 import 'package:frontend/screens/test/test_screen.dart';
 import 'package:frontend/screens/types/mbti_types_screen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -20,6 +25,10 @@ final GoRouter _router = GoRouter(
           path: '/',
           builder: (context, state) => const HomeScreen()),
 
+      // 로그인 화면
+      GoRoute(
+          path: '/login',
+          builder: (context, state) => const LoginScreen()),
       //검사 화면
       GoRoute(
         path: '/test',
@@ -81,6 +90,10 @@ final GoRouter _router = GoRouter(
           }
       ),
       GoRoute(
+          path: '/signup',
+          builder: (context, state) => SignupScreen()
+      ),
+      GoRoute(
           path: '/types',
           builder: (context, state) => MbtiTypesScreen()
       )
@@ -92,11 +105,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //    google에서 제공하는 기본  커스텀 css 를 사용하며
     //                 특정경로를 개발자가 하나하나 설정하겠다.
-    return MaterialApp.router(
+    return MultiProvider(
+        providers:[
+          ChangeNotifierProvider(create:(_) => AuthProvider()),
+        ],
+
+        child: MaterialApp.router(
       title: AppConstants.appName,
       debugShowCheckedModeBanner: false,
       // 경로설정에 대한것은 : _router라는 변수이름을 참고해서 사용하거라
-      routerConfig: _router,
+      routerConfig: _router,)
      /* 추후 라이트테마 다크 테마를 만들어서 세팅
      * theme
      * darkTheme

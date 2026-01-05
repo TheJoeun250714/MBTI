@@ -6,6 +6,7 @@ import 'package:frontend/models/mbti_type_model.dart';
 import 'package:frontend/models/question_model.dart';
 import 'package:frontend/models/result_model.dart';
 import 'package:frontend/models/test_request_model.dart';
+import 'package:frontend/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 /* final 에 비하여 const 가벼움
@@ -21,6 +22,31 @@ class ApiService {
   // 상태관리가 된 url 주소 호출
   static const String url = ApiConstants.baseUrl;
 
+  // ================== 사용자 관련 API ==================
+
+  // 로그인
+  // GET api/mbti/users
+  static Future<User> login(String userName) async {
+    final res = await http.post(
+      Uri.parse('$url${ApiConstants.userUrl}'),
+      headers: {'Content-Type':'application/json'},
+      body: json.encode({'userName':userName})
+    );
+
+    if(res.statusCode == 200){
+      Map<String, dynamic> jsonData = json.decode(res.body);
+      return User.fromJson(jsonData);
+    } else {
+      throw Exception(ErrorMessages.submitFailed);
+    }
+  }
+
+  // 사용자명으로 사용자 조회
+  // static Future<User?> getUserByUserName(String userName)
+  // 모든 사용자 조회
+  // static Future<List<User>> getAllUsers()
+
+  // ================== 질문 관련 API ==================
   static Future<List<Question>> getQuestions() async {
     final res = await http.get(Uri.parse('$url/questions'));
 
@@ -32,6 +58,7 @@ class ApiService {
     }
   }
 
+  // ================== 검사 제출 API ==================
   static Future<Result> submitTest(
     String userName,
     Map<int, String> answers,
@@ -130,7 +157,9 @@ class ApiService {
   // final res
   // 개발 회사 상태 확인용 API
   static Future<Result> healthCheck(int id) async {
-    final res = await http.get(Uri.parse('$url${ApiConstants.result}${ApiConstants.health}'));
+    final res = await http.get(
+      Uri.parse('$url${ApiConstants.result}${ApiConstants.health}'),
+    );
 
     if (res.statusCode == 200) {
       Map<String, dynamic> jsonData = json.decode(res.body);
@@ -139,6 +168,7 @@ class ApiService {
       throw Exception(ErrorMessages.serverError);
     }
   }
+
   /*
 final               res = http.Response 라는 타입으로 자동 지정
 final http.Response res =
