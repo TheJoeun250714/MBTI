@@ -98,7 +98,7 @@ public class UserServiceImpl implements UserService {
         // TODO 3: 신규 사용자 등록
         User newUser = new User();
         newUser.setUserName(userName);
-        userMapper.insertUser(newUser);
+        userMapper.insert(newUser);
         log.info("New user signed up: {} with id: {}", userName, newUser.getId());
         // TODO 4: 등록된 사용자 정보 반환
         // 힌트: userMapper.selectById(newUser.getId())

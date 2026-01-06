@@ -66,7 +66,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
     try {
       String name = _nameController.text.trim();
-      final user = await ApiService.login(name);
+      final user = await ApiService.signUp(name);
 
       if(mounted) {
         // Provider에 로그인 정보를 저장
@@ -147,9 +147,12 @@ class _SignupScreenState extends State<SignupScreen> {
                         // 정규식으로 입력값 검증
                         // 만약 숫자가 보이면 -> 숫자는 입력할 수 없습니다.
                         if (RegExp(r'[0-9]').hasMatch(value)) {
-                          _errorText = "숫자는 입력할 수 없습니다.";
-                        } else if (RegExp(r'[각-힣a-zA-Z]').hasMatch(value)) {
-                          _errorText = "한글과 영어만 입력 가능합니다.";
+                          _errorText = '숫자는 입력할 수 없습니다.';
+                          // 가-힣 : ㄱ ㄴ ㄷ ㄹ 처럼 자음 모음 형태의 글자는 사용 불가
+                          // ㄱ-힇 : 이런 형태로 한글로 되어 있는 모든 글자를 사용하겠다.
+                          // ㅎ 우리 회사가 원하는 한글 아님 홍 과 같이 자음과 모음으로 이루어진 한글만 취급하겠다.
+                        } else  if (RegExp(r'[^가-힣a-zA-Z]').hasMatch(value)) {
+                          _errorText = '한글과 영어만 입력 가능합니다.';
                         } else {
                           _errorText = null;
                         }

@@ -1,4 +1,4 @@
-package com.mbti.config;
+package com.mbti.common.config;
 
 
 import com.zaxxer.hikari.HikariConfig;

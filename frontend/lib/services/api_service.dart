@@ -53,13 +53,32 @@ class ApiService {
     ),
   );
 
+// signup 만들기
+  static Future<User> signUp(String userName) async {
+    final res = await _dio.post(
+        '${ApiConstants.userUrl}/signup',
+        data: {'userName':userName}
+    );
+    // 회원가입의 경우 200 201 사용
+    // 200 == 요청 성공했어요~~  GET PUT PATCH
+    // 201 == 리소스 생성 성공했어요 POST 회원가입, 게시물 작성
+    // 204 == No content 성공했으나 응답 본문 없음 DELETE
+    if(res.statusCode == 200|| res.statusCode == 201){
+      return User.fromJson(res.data);
+    } else {
+      throw Exception(ErrorMessages.submitFailed);
+    }
+  }
 
   static Future<User> login(String userName) async {
     final res = await _dio.post(
-        ApiConstants.userUrl,
+        '${ApiConstants.userUrl}/login',
         data: {'userName':userName}
     );
-
+    // 회원가입의 경우 200 201 사용
+    // 200 == 요청 성공했어요~~  GET PUT PATCH
+    // 201 == 리소스 생성 성공했어요 POST 회원가입, 게시물 작성
+    // 204 == No content 성공했으나 응답 본문 없음 DELETE
     if(res.statusCode == 200){
       return User.fromJson(res.data);
     } else {
