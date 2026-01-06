@@ -28,7 +28,7 @@ public class WebConfig implements WebMvcConfigurer {
                 registry.addMapping("/api/**")
                         .allowedOrigins("http://localhost:3001",
                                 "http://localhost:3000", // IOS 테스트에서는 8080
-                                "http://127.0.0.1",
+                                "http://localhost:52166",
                                 "http://10.0.2.2:8080" //안드로이드 핸드폰 테스트
 
                         )
