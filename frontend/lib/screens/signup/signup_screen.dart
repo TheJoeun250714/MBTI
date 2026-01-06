@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/providers/auth_provider.dart';
+import 'package:frontend/services/api_service.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -50,10 +53,46 @@ class _SignupScreenState extends State<SignupScreen> {
     return true;
   }
 
-  void _handleSignup() {
-    // 백엔드 회원가입 API 호출
-    // 성공 -> 자동로그인과 함께 검사 화면 이동
-    // 실패 에러메세지 로딩해지
+  // 백엔드와 주고받능에서 Future<> 를 작성안해도 문제가 발생하지 않음
+  // 프론트엔드와 백엔드와 데이터를 주고받을 때 중간에 언젠가 문제가 발생할 수 있기 때문에
+  // 백엔드와 주고받는 기능이다 선언과 같이 Future 를 작성해주자
+
+  Future<void> _handleSignup() async {
+    if (!_validateName()) return;
+
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      String name = _nameController.text.trim();
+      final user = await ApiService.login(name);
+
+      if(mounted) {
+        // Provider에 로그인 정보를 저장
+        await context.read<AuthProvider>().login(user);
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('${user.userName}님, 회원가입이 완료되었습니다.'),
+          backgroundColor: Colors.green,
+            duration: Duration(seconds: 2),
+          )
+        );
+        context.go('/test',extra: name);
+      }
+    } catch (e) {
+      if(mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('회원가입에 실패했습니다. 다시 시도해주세요.'),
+          backgroundColor: Colors.red)
+        );
+      }
+
+    }
   }
 
   @override

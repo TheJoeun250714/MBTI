@@ -17,41 +17,35 @@ void main() {
   runApp(const MyApp());
 }
 
-
 final GoRouter _router = GoRouter(
-    initialLocation: '/',
-    routes: [
-      GoRoute(
-          path: '/',
-          builder: (context, state) => const HomeScreen()),
+  initialLocation: '/',
+  routes: [
+    GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
 
-      // 로그인 화면
-      GoRoute(
-          path: '/login',
-          builder: (context, state) => const LoginScreen()),
-      //검사 화면
-      GoRoute(
-        path: '/test',
-        builder: (context, state) {
-          final userName = state.extra as String; // 잠시 사용할 이름인데 문자열이에요~
-          /*
+    // 로그인 화면
+    GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
+    //검사 화면
+    GoRoute(
+      path: '/test',
+      builder: (context, state) {
+        final userName = state.extra as String; // 잠시 사용할 이름인데 문자열이에요~
+        /*
           생성된 객체를 사용할 수 는 있으나, 매개변수는 존재하지 않은 상태
           단순히 화면만 보여주는 형태
           const TestScreen({super.key});
 
           * */
-          return TestScreen(userName : userName);
-
-        }
-      ),
-      GoRoute(
-          path: '/result',
-          builder: (context, state) {
-         //   final data = state.extra as Map<String, dynamic>;
+        return TestScreen(userName: userName);
+      },
+    ),
+    GoRoute(
+      path: '/result',
+      builder: (context, state) {
+        //   final data = state.extra as Map<String, dynamic>;
         final result = state.extra as Result;
 
-        return ResultScreen( result:result);
-            /*
+        return ResultScreen(result: result);
+        /*
           생성된 객체를 사용할 수 는 있으나, 매개변수는 존재하지 않은 상태
           단순히 화면만 보여주는 형태
           const TestScreen({super.key});
@@ -72,50 +66,46 @@ final GoRouter _router = GoRouter(
             );
 
          */
-          }
-      ),
-      GoRoute(
-          path: '/history',
-          builder: (context, state) {
-            final userName = state.extra as String;
-            /*
+      },
+    ),
+    GoRoute(
+      path: '/history',
+      builder: (context, state) {
+        final userName = state.extra as String;
+        /*
           생성된 객체를 사용할 수 는 있으나, 매개변수는 존재하지 않은 상태
           단순히 화면만 보여주는 형태
           const TestScreen({super.key});
 
           * */
-            //return ResultDetailScreen( userName:state.extra as String );
-            //                         required      final useName
-            return ResultDetailScreen( userName    : userName);
-          }
-      ),
-      GoRoute(
-          path: '/signup',
-          builder: (context, state) => SignupScreen()
-      ),
-      GoRoute(
-          path: '/types',
-          builder: (context, state) => MbtiTypesScreen()
-      )
-    ]);
+        //return ResultDetailScreen( userName:state.extra as String );
+        //                         required      final useName
+        return ResultDetailScreen(userName: userName);
+      },
+    ),
+    GoRoute(path: '/signup', builder: (context, state) => SignupScreen()),
+    GoRoute(path: '/types', builder: (context, state) => MbtiTypesScreen()),
+  ],
+);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     //    google에서 제공하는 기본  커스텀 css 를 사용하며
     //                 특정경로를 개발자가 하나하나 설정하겠다.
     return MultiProvider(
-        providers:[
-          ChangeNotifierProvider(create:(_) => AuthProvider()),
-        ],
+      providers: [ChangeNotifierProvider(create: (_) => AuthProvider())],
 
-        child: MaterialApp.router(
-      title: AppConstants.appName,
-      debugShowCheckedModeBanner: false,
-      // 경로설정에 대한것은 : _router라는 변수이름을 참고해서 사용하거라
-      routerConfig: _router,)
-     /* 추후 라이트테마 다크 테마를 만들어서 세팅
+      child: MaterialApp.router(
+        title: AppConstants.appName,
+        debugShowCheckedModeBanner: false,
+        // 경로설정에 대한것은 : _router라는 변수이름을 참고해서 사용하거라
+        routerConfig: _router,
+      ),
+
+      /* 추후 라이트테마 다크 테마를 만들어서 세팅
      * theme
      * darkTheme
      * themeMode
@@ -124,7 +114,6 @@ class MyApp extends StatelessWidget {
      * 경로이동없이 작성할 때 사용!
      *  home: const HomeScreen(),
      * */
-
     );
   }
 }
