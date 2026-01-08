@@ -1,0 +1,17 @@
+2026-01-05 09:34:37.126  INFO 19124 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 19124 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2026-01-05 09:34:37.131  INFO 19124 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2026-01-05 09:34:37.242  INFO 19124 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-05 09:34:37.243  INFO 19124 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-05 09:34:41.362  INFO 19124 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-01-05 09:34:41.379  INFO 19124 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-05 09:34:41.379  INFO 19124 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-01-05 09:34:41.444  INFO 19124 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-01-05 09:34:41.445  INFO 19124 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4201 ms
+2026-01-05 09:34:41.576  INFO 19124 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-05 09:34:41.969  INFO 19124 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9af376a
+2026-01-05 09:34:41.972  INFO 19124 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-05 09:34:43.466  INFO 19124 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-01-05 09:34:43.507  INFO 19124 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-01-05 09:34:43.517  INFO 19124 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 8.371 seconds (process running for 10.774)
+2026-01-05 15:32:48.208  INFO 19124 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-05 15:32:48.225  INFO 19124 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -10,10 +10,14 @@ import 'package:frontend/screens/result/result_screen.dart';
 import 'package:frontend/screens/test/test_screen.dart';
 import 'package:frontend/screens/types/mbti_types_screen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kakao_map_plugin/kakao_map_plugin.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  // 1. 카카오 자바스크립트 키 초기화
+  AuthRepository.initialize(appKey: '카카오 자바스크립트 키');
+
   runApp(const MyApp());
 }
 
@@ -21,65 +25,26 @@ final GoRouter _router = GoRouter(
   initialLocation: '/',
   routes: [
     GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
-
-    // 로그인 화면
+    // 2. 지도 경로 스크린 추가 /map
     GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
-    //검사 화면
     GoRoute(
       path: '/test',
       builder: (context, state) {
-        final userName = state.extra as String; // 잠시 사용할 이름인데 문자열이에요~
-        /*
-          생성된 객체를 사용할 수 는 있으나, 매개변수는 존재하지 않은 상태
-          단순히 화면만 보여주는 형태
-          const TestScreen({super.key});
-
-          * */
+        final userName = state.extra as String;
         return TestScreen(userName: userName);
       },
     ),
     GoRoute(
       path: '/result',
       builder: (context, state) {
-        //   final data = state.extra as Map<String, dynamic>;
         final result = state.extra as Result;
-
         return ResultScreen(result: result);
-        /*
-          생성된 객체를 사용할 수 는 있으나, 매개변수는 존재하지 않은 상태
-          단순히 화면만 보여주는 형태
-          const TestScreen({super.key});
-
-          * */
-        /*
-            return ResultScreen(
-                userName: data['userName']!,
-              resultType: data['resultType']!,
-              eScore: data['eScore']!,
-              iScore: data['iScore']!,
-              sScore: data['sScore']!,
-              nScore: data['nScore']!,
-              tScore: data['tScore']!,
-              fScore: data['fScore']!,
-              jScore: data['jScore']!,
-              pScore: data['pScore']!,
-            );
-
-         */
       },
     ),
     GoRoute(
       path: '/history',
       builder: (context, state) {
         final userName = state.extra as String;
-        /*
-          생성된 객체를 사용할 수 는 있으나, 매개변수는 존재하지 않은 상태
-          단순히 화면만 보여주는 형태
-          const TestScreen({super.key});
-
-          * */
-        //return ResultDetailScreen( userName:state.extra as String );
-        //                         required      final useName
         return ResultDetailScreen(userName: userName);
       },
     ),
@@ -93,27 +58,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //    google에서 제공하는 기본  커스텀 css 를 사용하며
-    //                 특정경로를 개발자가 하나하나 설정하겠다.
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => AuthProvider())],
 
       child: MaterialApp.router(
         title: AppConstants.appName,
         debugShowCheckedModeBanner: false,
-        // 경로설정에 대한것은 : _router라는 변수이름을 참고해서 사용하거라
         routerConfig: _router,
       ),
-
-      /* 추후 라이트테마 다크 테마를 만들어서 세팅
-     * theme
-     * darkTheme
-     * themeMode
-     * home을 사용할 때는 go_router 와 같이
-     * 기본 메인 위치를 지정하지 않고, home 을 기준으로
-     * 경로이동없이 작성할 때 사용!
-     *  home: const HomeScreen(),
-     * */
     );
   }
 }
+
+
+

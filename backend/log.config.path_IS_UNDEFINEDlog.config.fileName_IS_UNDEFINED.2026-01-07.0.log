@@ -1,0 +1,48 @@
+2026-01-07 09:32:54.246  INFO 22444 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 22444 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2026-01-07 09:32:54.249  INFO 22444 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2026-01-07 09:32:54.311  INFO 22444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-07 09:32:54.312  INFO 22444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-07 09:32:56.365  INFO 22444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-01-07 09:32:56.383  INFO 22444 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-07 09:32:56.383  INFO 22444 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-01-07 09:32:56.449  INFO 22444 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-01-07 09:32:56.450  INFO 22444 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2136 ms
+2026-01-07 09:32:56.559  INFO 22444 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-07 09:32:56.841  INFO 22444 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@fe3a94f
+2026-01-07 09:32:56.843  INFO 22444 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-07 09:32:58.252  INFO 22444 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-01-07 09:32:58.307  INFO 22444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-01-07 09:32:58.318  INFO 22444 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 4.779 seconds (process running for 6.993)
+2026-01-07 09:35:06.779  INFO 22444 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-07 09:35:06.812  INFO 22444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-01-07 09:35:06.815  INFO 22444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-01-07 09:38:38.365  INFO 22444 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-07 09:38:38.382  INFO 22444 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-01-07 09:38:47.714  INFO 12864 --- [restartedMain] com.mbti.BackendApplication              : Starting BackendApplication using Java 21.0.8 with PID 12864 (E:\project\MBTI\backend\build\classes\java\main started by TJ in E:\project\MBTI\backend)
+2026-01-07 09:38:47.716  INFO 12864 --- [restartedMain] com.mbti.BackendApplication              : No active profile set, falling back to 1 default profile: "default"
+2026-01-07 09:38:47.762  INFO 12864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-07 09:38:47.763  INFO 12864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-07 09:38:49.367  INFO 12864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-01-07 09:38:49.381  INFO 12864 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-07 09:38:49.381  INFO 12864 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2026-01-07 09:38:49.433  INFO 12864 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-01-07 09:38:49.433  INFO 12864 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1669 ms
+2026-01-07 09:38:49.528  INFO 12864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-07 09:38:49.755  INFO 12864 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1e1d36c7
+2026-01-07 09:38:49.756  INFO 12864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-07 09:38:50.920  INFO 12864 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-01-07 09:38:50.958  INFO 12864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-01-07 09:38:50.966  INFO 12864 --- [restartedMain] com.mbti.BackendApplication              : Started BackendApplication in 3.871 seconds (process running for 4.981)
+2026-01-07 09:38:55.772  INFO 12864 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-07 09:38:55.773  INFO 12864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-01-07 09:38:55.774  INFO 12864 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-01-07 09:38:55.923  INFO 12864 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : [UserController.login()] 요청 / ip : 0:0:0:0:0:0:0:1
+2026-01-07 09:38:55.923  INFO 12864 --- [http-nio-8080-exec-1] c.mbti.user.controller.UserController    : POST /api/users/login - User: 홍길동
+2026-01-07 09:38:55.933  INFO 12864 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : ========== UserServiceImpl.login() 서비스 호출 ==========
+2026-01-07 09:38:55.933  INFO 12864 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : Parameter : [홍길동]
+2026-01-07 09:38:55.940  INFO 12864 --- [http-nio-8080-exec-1] com.mbti.user.service.UserServiceImpl    : Login attempt for user: 홍길동
+2026-01-07 09:38:56.026  INFO 12864 --- [http-nio-8080-exec-1] com.mbti.user.service.UserServiceImpl    : Existing user logged in: 홍길동
+2026-01-07 09:38:56.027  INFO 12864 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : Running Time : 93ms
+2026-01-07 09:38:56.027  INFO 12864 --- [http-nio-8080-exec-1] com.mbti.common.aop.LoggingAspect        : ===================================================================================
+2026-01-07 15:22:15.119  INFO 12864 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-07 15:22:15.154  INFO 12864 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

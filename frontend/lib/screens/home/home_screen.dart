@@ -24,26 +24,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 class _HomeScreenState extends State<HomeScreen> {
-  /*
-  TextField TextFormField 처럼 텍스트를 제어하고 관리하는 클래스
-
-  _nameController
-  변수명 앞의 _는 현재 파일에서만 사용 가능한 private 변수
-
-  사용 예시
-
-  TextField( controller : _nameController , )
-  클라이언트는 필드내부에 텍스트 작성
-
-  작성한 텍스트를 가져와서 사용하는 방법
-  String name = _nameController.text;
-
-  _nameController 내부 텍스트를 변경하는 방법
-  _nameController.text = "홍길동"
-   */
   final TextEditingController _nameController = TextEditingController();
-  String? _errorText; // 에러 메세지를 담을 변수 ? = 변수 공간에 null 들어갈 수 있다.
-
+  String? _errorText;
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -169,7 +151,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: 40),
                     if (!isLoggedIn)
-                      GuestSection()
+                      GuestSection(
+                        abc : _nameController,
+                        eText : _errorText,
+                        onErrorChanged : (error) => setState(() =>  _errorText = error)
+                      )
                     else
                       UserSection(),
                     SizedBox(height: 20),
