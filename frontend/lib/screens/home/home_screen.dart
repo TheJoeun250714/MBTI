@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/common/constants.dart';
 import 'package:frontend/providers/auth_provider.dart';
+import 'package:frontend/services/network_service.dart';
 import 'package:frontend/widgets/home/guest_section.dart';
 import 'package:frontend/widgets/home/profile_menu.dart';
 import 'package:frontend/widgets/home/user_section.dart';
@@ -20,10 +21,18 @@ lib/
 // 상태에 따른 화면 변화가 일어날 예정
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 class _HomeScreenState extends State<HomeScreen> {
+
+
+
+
+
   final TextEditingController _nameController = TextEditingController();
   String? _errorText;
   @override

@@ -9,6 +9,7 @@ import 'package:frontend/models/test_request_model.dart';
 import 'package:frontend/models/user_model.dart';
 // import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
+import 'package:frontend/services/network_service.dart';
 
 /* final 에 비하여 const 가벼움
   *  단기적으로 값 변경하지 못하도록 상수처리 할 때 = final
@@ -86,7 +87,15 @@ class ApiService {
     }
   }
 
+  static NetworkService _networkService = NetworkService();
   static Future<List<Question>> getQuestions() async {
+
+    if(!await _networkService.isConnected()){
+      throw Exception('네트워크에 연결되어 있지 않습니다.');
+    }
+
+    // 백엔드와 연결되어 있는지 확인 후 아래 기능 수행
+
     final res = await _dio.get('/questions');
 
     if (res.statusCode == 200) {

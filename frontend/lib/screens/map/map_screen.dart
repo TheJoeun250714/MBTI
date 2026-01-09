@@ -53,7 +53,7 @@ class MapScreenState extends State<MapScreen> {
     // try {} catch
        try {
       Position position = await Geolocator.getCurrentPosition(
-          locationSettiongs : LocationSettings(
+          locationSettings : LocationSettings(
             accuracy: LocationAccuracy.low, // 정확도 낮게 설정
             timeLimit: Duration(seconds: 5) // 5초 제한
           )

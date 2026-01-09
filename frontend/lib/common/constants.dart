@@ -36,6 +36,29 @@ ErrorMessages - 사용자에게 표시할 오류 메세지
     - 상황에 따라 선택하여 사용할 수 있다. 컴파일에서 사용한다는 표현이 더 적합
  */
 class ApiConstants {
+  /*
+   * 안드로이드 애뮬레이터용
+   * http://10.0.2.2:8080/api
+   *
+   * ios 시뮬레이터
+   * http://localhost:8080/api
+   *
+   * 실제 기기용
+   * http://192.168.x.x:8080/api
+   *
+   * 백엔드 주소
+   * https://도메인.도메인/api
+   *
+   * Chrome(web) 이나 Edge(web) 으로 console.log 로 상황확인하며 개발을 하고자 할 경우
+   * flutter run -d chrome --web-port=개발자가원하는 포트
+   *
+   * 프로젝트 루트에 .flutter 폴더 생성 후 chrome_device.json 파일 형태로
+   * {
+   * "port":51093 과 같은 포트번호 지정
+   * }
+   *
+   * 환경변수 파일 사용(.env)를 이용하여 constants 상태 관리를 할 수 있다.
+   */
   static const String baseUrl = 'http://localhost:8080/api';
   static const String mbtiUrl = '/mbti';
   static const String userUrl = '/users';
