@@ -21,26 +21,40 @@ lib/
 // 상태에 따른 화면 변화가 일어날 예정
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
-
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+
+
 class _HomeScreenState extends State<HomeScreen> {
 
 
+    final NetworkService _networkService = NetworkService();
+    final TextEditingController _nameController = TextEditingController();
+    String? _errorText;
+    // initState() //사용할 것
+    // initState()내부에 아래 기능 로드
 
 
-
-  final TextEditingController _nameController = TextEditingController();
-  String? _errorText;
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<AuthProvider>().loadSaveUser();
     });
+    _checkNetwork();
   }
+
+    void _checkNetwork() async {
+      final status = await _networkService.checkStatus();
+
+      if(mounted && status.contains('x나 연결안되었다는 공통된 구문 포함되어있다면')) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(status), backgroundColor: Colors.orange,
+              duration:  Duration(seconds: 3),
+            )
+        );
+      }
+    }
 
   /*
   * 로그인한 상태에서 검사 시작하기 버튼을 클릭했을 때,
